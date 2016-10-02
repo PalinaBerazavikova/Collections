@@ -11,20 +11,7 @@ namespace Collections
     class StackPerfomance
     {
         public static Stack<int> TestStack { get; set; } = new Stack<int>();
-
-        public static void WriteToFile()
-        {
-            string output = string.Empty;
-            output = $"{output}Stack adding time (1 000 000 elements) {AddingTime()}{Environment.NewLine}";
-            output = $"{output}Stack reading time (1 000 000 elements) {ReadingTime()}{Environment.NewLine}";
-            output = $"{output}Stack searching time (1 000 000 elements) {SearchingTime()}{Environment.NewLine}";
-            output = $"{output}Stack removing time (100 000 elements) {RemovingTime()}{Environment.NewLine}";
-            using (StreamWriter sw = File.AppendText("CollectionsPerfomance.txt"))
-            {
-                sw.WriteLine(output);
-            }
-        }
-
+    
         public static string AddingTime()
         {
             Stopwatch stopWatch = new Stopwatch();
@@ -56,7 +43,7 @@ namespace Collections
             return elapsedTime;
         }
 
-        public static string SearchingTime()
+        public static string SearchTime()
         {
             Stopwatch stopWatch = new Stopwatch();
             int y;

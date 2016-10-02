@@ -12,19 +12,6 @@ namespace Collections
     {
         public static LinkedList<int> TestLinkedList { get; set; } = new LinkedList<int>();
 
-        public static void WriteToFile()
-        {
-            string output = string.Empty;
-            output = $"{output}LinkedList adding time (1 000 000 elements) {AddingTime()}{Environment.NewLine}";
-            output = $"{output}LinkedList reading time (1 000 000 elements) {ReadingTime()}{Environment.NewLine}";
-            output = $"{output}LinkedList searching time (1 000 000 elements) {SearchingTime()}{Environment.NewLine}";
-            output = $"{output}LinkedList removing time (100 000 elements) {RemovingTime()}{Environment.NewLine}";
-            using (StreamWriter sw = File.AppendText("CollectionsPerfomance.txt")) 
-            {
-                sw.WriteLine(output);
-            }
-        }
-
         public static string AddingTime()
         {
             Stopwatch stopWatch = new Stopwatch();
@@ -56,7 +43,7 @@ namespace Collections
             return elapsedTime;
         }
 
-        public static string SearchingTime()
+        public static string SearchTime()
         {
             Stopwatch stopWatch = new Stopwatch();
             int y;

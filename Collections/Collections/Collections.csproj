@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analyzer.cs" />
     <Compile Include="DictionaryPerfomance.cs" />
     <Compile Include="LinkedListPerfomance.cs" />
     <Compile Include="ListPerfomance.cs" />
