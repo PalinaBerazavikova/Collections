@@ -12,20 +12,7 @@ namespace Collections
     {
         public static Dictionary<int, int> TestDictionary { get; set; } = new Dictionary<int, int>();
 
-        public static void WriteToFile()
-        {
-            string output = string.Empty;
-            output = $"{output}Dictionary adding time (1 000 000 elements) {AddingTime()}{Environment.NewLine}";
-            output = $"{output}Dictionary reading time (1 000 000 elements) {ReadingTime()}{Environment.NewLine}";
-            output = $"{output}Dictionary searching time (1 000 000 elements) {SearchingTime()}{Environment.NewLine}";
-            output = $"{output}Dictionary removing time (100 000 elements) {RemovingTime()}{Environment.NewLine}";
-            using (StreamWriter file = File.AppendText("CollectionsPerfomance.txt"))
-            {
-                file.WriteLine(output);
-            }
-        }
-
-        public static string AddingTime()
+        public static TimeSpan AddingTime()
         {
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
@@ -34,10 +21,7 @@ namespace Collections
                 TestDictionary.Add(i, i);
             }
             stopWatch.Stop();
-            TimeSpan timeSpan = stopWatch.Elapsed;
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:0000}",
-                timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);
-            return elapsedTime;
+            return stopWatch.Elapsed;
         }
 
         public static string ReadingTime()
@@ -56,7 +40,7 @@ namespace Collections
             return elapsedTime;
         }
 
-        public static string SearchingTime()
+        public static string SearchTime()
         {
             Stopwatch stopWatch = new Stopwatch();
             int y;

@@ -10,13 +10,8 @@ namespace Collections
     {
         static void Main(string[] args)
         {
-            ListPerfomance.WriteToFile();
-            LinkedListPerfomance.WriteToFile();
-            DictionaryPerfomance.WriteToFile();
-            QueuePerfomance.WriteToFile();
-            SortedSetPerfomance.WriteToFile();
-            SortedDictionaryPerfomance.WriteToFile();
-            StackPerfomance.WriteToFile();
+            Analyzer analyzer = new Analyzer();
+            analyzer.CreateHTMLFile();
             Console.ReadKey();
 
         }
